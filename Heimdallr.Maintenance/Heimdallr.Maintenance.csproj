@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Heimdallr.EntityFramework\Heimdallr.EntityFramework.csproj" />
+    <ProjectReference Include="..\Heimdallr.Mocks\Heimdallr.Mocks.csproj" />
+    <ProjectReference Include="..\Heimdallr\Heimdallr.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>iCubed.Heimdallr.Mocks</RootNamespace>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Chakra.Core" Version="2.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Heimdallr\Heimdallr.csproj" />
+  </ItemGroup>
+
+</Project>

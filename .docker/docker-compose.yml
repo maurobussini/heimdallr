@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  heimdallr-api:
+    image: heimdallr-api
+    build:
+      context: ../Heimdallr.Api
+      dockerfile: ./.docker/development.dockerfile
+    ports:
+      - "4000:80"
+    networks:
+      - heimdallr-network
+
+  heimdallr-mssql:
+    image: heimdallr-mssql
+    build:
+      context: ..
+      dockerfile: .docker/mssql-server.dockerfile
+    depends_on:
+      - heimdallr-api
+    ports:
+      - "1434:1433"
+    networks:
+      - heimdallr-network    
+    volumes:
+      - "E:/Platforms/docker/.volumes/mssql:/var/opt/mssql"
+
+networks: 
+  heimdallr-network:
+    driver: bridge
+
+# Run from solution root
+
+#> docker-compose -f ./.docker/docker-compose.yml up -d => Build images, create containers and run (in demon mode)
+#> docker-compose -f ./.docker/docker-compose.yml down --rmi all => Stop containers, delete containers and remove images

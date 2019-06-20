@@ -1,0 +1,26 @@
+{
+   "structureVersion": "1.5.0",
+   "registrationDate": "2019-03-05T18:40:14+01:00",
+   "atom": {
+      "url": "https://heimdallr-api.azurewebsites.net/oauth2/token",
+      "verb": "POST",
+      "body": "{\n    \"userName\": \"Administrator\", \n    \"password\": \"password\", \n    \"grantType\": \"password\", \n    \"clientId\": \"heimdallr.api\"\n}",
+      "headers": "{\n   \"Accept\": \"application/json\",\n   \"Content-Type\": \"application/x-www-form-urlencoded; charset=utf-8\"\n}",
+      "bodyKind": "x-www-form-urlencoded",
+      "withCredentials": false
+   },
+   "scenario": {
+      "code": "$.ajax({\n\turl:'https://maps.googleapis.com/maps/api/geocode/json?address=Meran',\n\tmethod:'GET',\n\tsuccess: function(res){\n\t\tdone(res);\n\t},\n\terror: function(err){\n\t\tdone(err);\n}});\n"
+   },
+   "massive": {
+      "batch": "[\n   {\n      \"verb\": \"GET\",\n      \"url\": \"https://maps.googleapis.com/maps/api/geocode/json?address=Meran\",\n      \"body\": null,\n      \"headers\": null,\n      \"withCredentials\": false\n   },\n   {\n      \"verb\": \"GET\",\n      \"url\": \"https://maps.googleapis.com/maps/api/geocode/json?address=Varese\",\n      \"body\": null,\n      \"headers\": null,\n      \"withCredentials\": false\n   },\n   {\n      \"verb\": \"GET\",\n      \"url\": \"https://maps.googleapis.com/maps/api/geocode/json?address=Chennai\",\n      \"body\": null,\n      \"headers\": null,\n      \"withCredentials\": false\n   }\n]"
+   },
+   "engine": {
+      "name": "heimdallr-api_AZURE_oauth2-token",
+      "iterations": 1,
+      "delay": 100,
+      "warmup": 5,
+      "timeout": 30000,
+      "mode": "atomAdapter"
+   }
+}
