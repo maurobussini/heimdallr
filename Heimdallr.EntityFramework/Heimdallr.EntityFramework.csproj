@@ -9,15 +9,11 @@
     <ItemGroup>
         <PackageReference Include="Chakra.Core" Version="2.0.13" />
         <PackageReference Include="Chakra.Core.EntityFramework" Version="2.0.13" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Heimdallr\Heimdallr.csproj" />
     </ItemGroup>
-    <ItemGroup>
-        <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-    </ItemGroup>
-
 </Project>
