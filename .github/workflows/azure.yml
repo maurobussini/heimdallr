@@ -27,10 +27,10 @@ jobs:
         cd Heimdallr.Api
         dotnet build --configuration Release
     
-    - name: Package Heimdallr.Api
+    - name: Publish Heimdallr.Api
       run: |  
         cd Heimdallr.Api
-        dotnet pack -c Release -o out
+        dotnet publish -c Release -o out
     
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v1
