@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AZURE_WEBAPP_NAME: heimhdallr
+  AZURE_WEBAPP_PACKAGE_PATH: './Heimdallr.Api/out'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:    
+
+    - uses: actions/checkout@v2
+      
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.101
+    
+    - name: Build Heimdallr.Api
+      run: |
+        cd Heimdallr.Api
+        dotnet build --configuration Release
+    
+    - name: Package Heimdallr.Api
+      run: |  
+        cd Heimdallr.Api
+        dotnet pack -c Release -o out
+    
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
